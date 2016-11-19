@@ -1,0 +1,62 @@
+.ios, .md {
+    .login {
+        background-color: red;
+        background-image: url("../assets/images/loginBackGround.jpg");
+        background-repeat: no-repeat;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        align-content: center;
+
+        .loginFormContainer{
+            background-color: black;
+        }
+
+        .imageApp {
+            display: block;
+            margin-left: auto;
+            margin-right: auto
+        }
+
+        .loginError{
+            color: whitesmoke;
+            background-color: firebrick;
+            opacity: 0.9;
+            padding: 5px;
+            border: 2px solid;
+        }
+
+        .rememberMeToggle{
+            font-size: 10px;
+            background-color: black;
+            color: whitesmoke;
+        }
+    }
+
+    input[type="text"]{
+        font-size:24px;
+        width: 100%;
+    }
+
+    input[type="password"]{
+        font-size:24px;
+        width: 100%;
+    }
+
+    .item-floating-label .placeholder-icon {
+        padding-right: 18px;
+        position: absolute;
+        bottom: 9px;
+        left: 17px;
+    }
+
+    .item-floating-label {
+        padding-left: 40px !important;
+    }
+
+    #signinButton{
+        align-content: center;
+    }
+  
+}

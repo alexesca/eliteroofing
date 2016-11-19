@@ -1,0 +1,39 @@
+<ion-content padding class="login">
+  <div class="loginFormContainer">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f.value.email,f.value.password,f.value.rememberMe)">
+    <ion-grid>
+      <ion-row>
+        <ion-col width-100><img src="./assets/images/eliteroofing.png" class="logoApp"></ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col width-100>
+          <input type="text" id="userEmail" placeholder="Email" name="email" autocorrect="off" autocapitalize="off" ngModel>  
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col width-100>
+          <input type="password" id="userPassword" placeholder="*********" name="password" ngModel> 
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col width-45>
+          <ion-item class="rememberMeToggle">
+          <ion-label class="rememberMeToggle">Remember me</ion-label>
+            <ion-toggle checked="true" name="rememberMe" ngModel class="rememberMeToggle"></ion-toggle>
+          </ion-item>
+        </ion-col>
+        <ion-col width-45>
+          <button type="submit"  ion-button id="signinButton">Sign in</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    </form>
+  </div>
+  <ion-grid>
+    <ion-col width-90>
+      <ion-row>
+        <div class="loginError" *ngIf="loginError">{{ loginError }}</div>
+      </ion-row>
+    </ion-col>
+  </ion-grid>
+</ion-content>

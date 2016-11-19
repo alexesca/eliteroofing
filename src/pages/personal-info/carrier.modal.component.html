@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-navbar color="eliteRoofingDark">
+    <ion-title>Carriers</ion-title>
+    <button  ion-button clear (click)="closeCarriersModal()">Done</button>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+    <ion-list no-lines >
+        <button ion-item  *ngFor="let option of carriers" (click)="selectedCarriersModal(option)" detail-none padding>
+            <ion-icon name="arrow-back"></ion-icon> {{option}}
+        </button>
+    </ion-list>
+</ion-content>

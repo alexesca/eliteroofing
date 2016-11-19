@@ -1,0 +1,70 @@
+#alignButtonLeft{
+    float:right;
+}
+.myCustomSelect{
+max-width: 100% !important;
+}
+
+.emailSlidingItem{
+    background-color: #2e5cb8;
+    font-size: 18px;
+    font-style: normal;
+    color:  #ffffff;
+    text-decoration: none;
+    padding: 2pt;
+}
+
+
+.centerLabelSlidingItem{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.textSlidingItem{
+    background-color: #59b300;
+    font-size: 18px;
+    font-style: normal;
+    color:  #ffffff;
+    text-decoration: none;
+    padding: 2pt;
+}
+
+.callSlidingItem{
+    background-color: #ffcc00;
+    font-size: 18px;
+    font-style: normal;
+    color:  #ffffff;
+    text-decoration: none;
+    padding: 2pt;
+}
+
+
+.centerIconSlidingItem{
+    vertical-align: middle
+}
+
+.jobItemStyle{
+    #nameCustomer{
+        color:#1a1a1a;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    #addressCustomer{
+        color:#808080;
+        font-size: 12px;
+    }
+
+    #phoneCustomer{
+        color:#004de6;
+        font-size: 13px;
+    }
+
+    #jobStatusCustomer{
+        color:#ffcc00;
+        font-size: 13px;
+    }
+
+    
+}
