@@ -26,6 +26,7 @@ import { PhoneNumberPage } from '../pages/personal-info/phone.component';
 import { CarriersModal } from '../pages/personal-info/carrier.modal.component';
 import { AddressPage } from '../pages/personal-info/address.component';
 import { PasswordPage } from '../pages/personal-info/password.component';
+import { PersonalInfoComponente } from '../pages/personal-info/personalInfo.component';
 import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 //Using cloud settings
 //import { AuthHttp, AuthConfig,AUTH_PROVIDERS } from 'angular2-jwt';
@@ -60,13 +61,14 @@ const cloudSettings: CloudSettings = {
     PhoneNumberPage,
     CarriersModal,
     AddressPage,
-    PasswordPage
+    PasswordPage,
+    PersonalInfoComponente
   ],
   imports: [
     IonicModule.forRoot(MyApp),
     CloudModule.forRoot(cloudSettings),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   bootstrap: [IonicApp],
   //Add that same component here again hkhkjhk
@@ -89,7 +91,8 @@ const cloudSettings: CloudSettings = {
     PhoneNumberPage,
     CarriersModal,
     AddressPage,
-    PasswordPage
+    PasswordPage,
+    PersonalInfoComponente
   ],
   //Add your providers or services here
   providers: [Jobs, Clients, AgingReportsProvider, ClosingRatioProvider, AuthService,PersonalInfoService]

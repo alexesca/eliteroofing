@@ -4,14 +4,15 @@
   </ion-navbar>
 </ion-header>
 
+<!--  hsdjhaskjdhd -->
 <ion-content>
-    <form #f="ngForm" (ngSubmit)="savePhoneNumber(f.value)">
+    <form #f="ngForm" (ngSubmit)="saveAddress(f.value)">
         <ion-grid>
         <ion-row>
             <ion-col width-90>
                 <ion-item>
                     <ion-label color="eliteRoofingDark" floating>Address</ion-label>
-                    <ion-input type="number" name="countryCode" value="{{countryCode}}" ngModel></ion-input>
+                    <ion-input type="text" name="address" [(ngModel)]="address" ></ion-input>
                 </ion-item>
             </ion-col>
         </ion-row>
@@ -19,8 +20,7 @@
         <ion-col width-90>
             <ion-item>
                 <ion-label color="eliteRoofingDark" floating>Zip</ion-label>
-                <ion-input type="number" name="phone" value="{{phoneNumber}}" ngModel></ion-input>
-                <input type="hidden" name="carrier" value="{{carrier}}" ngModel>
+                <ion-input type="text" name="zip" [(ngModel)]="zip"></ion-input>
             </ion-item>
         </ion-col>
         </ion-row>
@@ -28,8 +28,7 @@
         <ion-col width-90>
             <ion-item>
                 <ion-label color="eliteRoofingDark" floating>City</ion-label>
-                <ion-input type="number" name="phone" value="{{phoneNumber}}" ngModel></ion-input>
-                <input type="hidden" name="carrier" value="{{carrier}}" ngModel>
+                <ion-input type="text" name="city" [(ngModel)]="city"></ion-input>
             </ion-item>
         </ion-col>
         </ion-row>
@@ -37,23 +36,22 @@
         <ion-col width-90>
             <ion-item>
                 <ion-label color="eliteRoofingDark" floating>State</ion-label>
-                <ion-input type="number" name="phone" value="{{phoneNumber}}" ngModel></ion-input>
-                <input type="hidden" name="carrier" value="{{carrier}}" ngModel>
+                <ion-input type="text" name="state" [(ngModel)]="state"></ion-input>
             </ion-item>
         </ion-col>
         </ion-row>
         <ion-row>
         <ion-col width-90>
             <ion-item>
-                <ion-label color="eliteRoofingDark" floating>Country</ion-label>
-                <ion-input type="number" name="phone" value="United States" ngModel disabled></ion-input>
-                <input type="hidden" name="carrier" value="{{carrier}}" ngModel>
+                <ion-label color="eliteRoofingDark" >Country</ion-label>
+                <ion-label color="eliteRoofingDark" >{{ country }}</ion-label>
+                <input type="hidden" name="country" [(ngModel)]="country">
             </ion-item>
         </ion-col>
         </ion-row>
         <ion-row>
             <ion-col width-90>
-                <button ion-button class="align-button-right">Save</button>
+                <button type="submit" ion-button class="align-button-right">Save</button>
             </ion-col>
         </ion-row>
         </ion-grid>

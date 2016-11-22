@@ -4,10 +4,7 @@ import { NavController, LoadingController, App, NavParams, ModalController } fro
 import { PersonalInfoService } from '../../providers/personalInfoService';
 import { CarriersModal } from './carrier.modal.component';
 /*
-  Generated class for the PersonalInfo page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
+ pages and navigation.
 */
 @Component({
   selector: 'page-phone-number',
@@ -26,13 +23,13 @@ export class PhoneNumberPage {
   }
 
   ionViewDidLoad() {
-    this.phoneNumberInformation = this.navParams.get('phoneNumber');
     this.phone = this.navParams.get('phone');
     this.carrier = this.navParams.get('carrier');
     this.countryCode = this.navParams.get('countryCode');
   }
 
   savePhoneNumber(phoneObject: any){
+    console.log(phoneObject);
     this.personalInfo.savePhoneNumber(phoneObject);
     return;
   }
@@ -42,14 +39,14 @@ export class PhoneNumberPage {
         let modal = this.modalCtrl.create(CarriersModal);
         //when modal is closed
         modal.onDidDismiss(carrierSelected => {
-          this.carrier = carrierSelected.carrier;
-          console.log(carrierSelected.carrier);
+          if(carrierSelected){
+            this.carrier = carrierSelected.carrier;
+          }
         });
         modal.present();
         return;
         //Informs the user about the changes
-        //I still need to get the response from teh server if it was saved successfully or there was any error
+        //I still need to get the response from the server if it was saved successfully or there was any error
   }
-
 
 }

@@ -11,7 +11,7 @@
             <ion-col width-90>
                 <ion-item>
                     <ion-label color="eliteRoofingDark" floating>Country Code</ion-label>
-                    +<ion-input type="number" name="countryCode" value="{{countryCode}}" ngModel></ion-input>
+                    <ion-input type="number" name="countryCode" [(ngModel)]="countryCode"></ion-input>
                 </ion-item>
             </ion-col>
         </ion-row>
@@ -19,16 +19,18 @@
         <ion-col width-90>
             <ion-item>
                 <ion-label color="eliteRoofingDark" floating>Phone Number</ion-label>
-                <ion-input type="number" name="phone" value="{{phoneNumber}}" ngModel></ion-input>
-                <input type="hidden" name="carrier" value="{{carrier}}" ngModel>
+                <ion-input type="number" name="phone" [(ngModel)]="phone"></ion-input>
+                <input type="hidden" name="carrier" [(ngModel)]="carrier">
             </ion-item>
         </ion-col>
         </ion-row>
         <ion-row>
-            <ion-col width-90><button ion-button clear (click)="selectCarrier()">{{ carrier }}</button></ion-col>
+            <ion-col width-90>
+                <button ion-button clear (click)="selectCarrier()" type="button">{{ carrier }}</button>
+            </ion-col>
         </ion-row>
         <ion-row>
-            <ion-col width-90><button ion-button class="align-button-right">Save</button></ion-col>
+            <ion-col width-90><button type="submit" ion-button class="align-button-right">Save</button></ion-col>
         </ion-row>
         </ion-grid>
     </form>    

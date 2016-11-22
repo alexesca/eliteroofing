@@ -7,6 +7,7 @@ import { EmailPage } from './email.component';
 import { PhoneNumberPage } from './phone.component';
 import { AddressPage } from './address.component';
 import { PasswordPage } from './password.component';
+import { PersonalInfoComponente } from './personalInfo.component';
 import { PersonalInfoService } from '../../providers/personalInfoService';
 @Component({
   selector: 'password-info',
@@ -14,15 +15,22 @@ import { PersonalInfoService } from '../../providers/personalInfoService';
 })
 
 
-//Class for personalinfo
+
 export class PersonalInfoPage {
 
   personalInformation: any;
-  email: String;
-  address: String;
-  phoneNumber: String;
-  carrier: String;
-  countryCode: String;
+  email: string;
+  address: string;
+  city: string;
+  country: string;
+  state: string;
+  zip: string;
+
+  phoneNumber: string;
+  carrier: string;
+  countryCode: string;
+  name: string;
+
 
   constructor(private personalInfo: PersonalInfoService,private _app: App, public navCtrl: NavController, public auth: Auth, public user: User, private loadingCtrl: LoadingController) {
  
@@ -37,18 +45,24 @@ export class PersonalInfoPage {
   }
 
   goToPhoneNumber(){
-      this.navCtrl.push(PhoneNumberPage,{ phoneNumberInformation: this.phoneNumber,
+      this.navCtrl.push(PhoneNumberPage,{ phone: this.phoneNumber,
         carrier : this.carrier,
         countryCode : this.countryCode
       });
   }
 
   goToAddress(){
-      this.navCtrl.push(AddressPage);
+      this.navCtrl.push(AddressPage,{
+        country: this.country,
+        state: this.state,
+        city: this.city,
+        address: this.address,
+        zip: this.zip 
+      });
   }
 
   goToPassword(){
-      this.navCtrl.push(PasswordPage);
+      this.navCtrl.push(PasswordPage,{email: this.email});
   }
 
 
@@ -60,12 +74,18 @@ export class PersonalInfoPage {
 
   getPersonalInfo(){
     this.personalInfo.getPersonalInfo().then((data) => {
+      console.log(data);
       this.personalInformation = data;
+      this.name = this.personalInformation.firstName + " " + this.personalInformation.lastName
       this.email = this.personalInformation.primaryEmailAddress;
       this.phoneNumber = this.personalInformation.primaryPhoneNumber.number;
       this.carrier = this.personalInformation.primaryPhoneNumber.carrier;
       this.countryCode = this.personalInformation.primaryPhoneNumber.countryCode;
-      this.address = this.personalInformation.primaryAddresse.address;
+      this.address = this.personalInformation.primaryAddress.address;
+      this.country = this.personalInformation.primaryAddress.country;
+      this.state = this.personalInformation.primaryAddress.state;
+      this.city = this.personalInformation.primaryAddress.city;
+      this.zip = this.personalInformation.primaryAddress.zip;
     });
   }
 

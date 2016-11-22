@@ -10,7 +10,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 })
 export class MyApp {
   //maing page ghgh
-  rootPage = TabsPage;
+  rootPage = LoginPage;
 
   constructor(platform: Platform) {
     platform.ready().then(() => {

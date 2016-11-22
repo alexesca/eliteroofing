@@ -15,39 +15,30 @@ import { CarriersModal } from './carrier.modal.component';
 })
 export class AddressPage {
 
-  //Variables
-  phoneNumberInformation: String;
-  phone: String;
-  carrier: String;
-  countryCode: String;
+  //variables
+  country: string;
+  state: string;
+  address: string;
+  zip: string;
+  city: string;
 
   constructor(private modalCtrl: ModalController ,private personalInfo: PersonalInfoService,public navParams: NavParams, private _app: App, public navCtrl: NavController, public auth: Auth, public user: User, private loadingCtrl: LoadingController) {
  
   }
 
   ionViewDidLoad() {
-    //this.phoneNumberInformation = this.navParams.get('phoneNumber');
-    
+    this.country = this.navParams.get('country');
+    this.state = this.navParams.get('state');
+    this.city = this.navParams.get('city');
+    this.address = this.navParams.get('address');
+    this.zip = this.navParams.get('zip');
+    console.log(this.navParams);
   }
 
-  savePhoneNumber(phoneObject: any){
-    this.personalInfo.savePhoneNumber(phoneObject);
+  saveAddress(addressObject: any){
+    console.log(addressObject);
+    this.personalInfo.saveAddress(addressObject);
     return;
   }
-
-  selectCarrier(){
-      //Creates the modal
-        let modal = this.modalCtrl.create(CarriersModal);
-        //when modal is closed
-        modal.onDidDismiss(carrierSelected => {
-          this.carrier = carrierSelected.carrier;
-          console.log(carrierSelected.carrier);
-        });
-        modal.present();
-        return;
-        //Informs the user about the changes
-        //I still need to get the response from teh server if it was saved successfully or there was any error
-  }
-
 
 }

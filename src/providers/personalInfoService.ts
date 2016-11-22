@@ -27,27 +27,45 @@ export class PersonalInfoService {
           resolve(this.data);
         });
     });
- 
   }
 
   //Makes the request to the API/REST server to update 
   saveEmail(email){
     //Calls this url and return a parsed json.object
-    this.http.get('http://localhost:8080/api/personalinfo/updateemail/' + email)
+    this.http.put('http://localhost:8080/api/personalinfo/updateemail/' + "5807a86bf8d0c52d78d5140d",{'email': email})
       .subscribe(res => {
         console.log(res.json());
       });
   }
 
+  
+
   //Makes the request to the API/REST server to update 
   savePhoneNumber(phoneObject){
     
-    let phone = phoneObject.phone;
-    let carrier = phoneObject.carrier;
-    let countrCode = phoneObject.countryCode;
+    let phone: string = phoneObject.phone;
+    let carrier: string = phoneObject.carrier;
+    let countryCode: string = phoneObject.countryCode;
 
     //Calls this url and return a parsed json.object
-    this.http.get('http://localhost:8080/api/personalinfo/updatephonenumber?phone=' + phone + '&carrier=' + carrier + '&countryCode=' + countrCode)
+    this.http.put('http://localhost:8080/api/personalinfo/updatephonenumber/' + "5807a86bf8d0c52d78d5140d",{ 'phone': phone, 'carrier' : carrier, 'countryCode':countryCode})
+      .subscribe(res => {
+        console.log(res.json());
+     });
+  }
+
+  //Makes the request to the API/REST server to update 
+  saveAddress(phoneObject){
+    
+    let country: string = phoneObject.country;
+    let state: string = phoneObject.state;
+    let city: string = phoneObject.city;
+    let zip: string = phoneObject.zip;
+    let address: string = phoneObject.address;
+
+    //Calls this url and return a parsed json.object
+    this.http.put('http://localhost:8080/api/personalinfo/updateaddress/' + "5807a86bf8d0c52d78d5140d"
+    ,{ 'country': country, 'state' : state, 'city': city, 'address' : address, 'zip' : zip})
       .subscribe(res => {
         console.log(res.json());
      });

@@ -22861,16 +22861,8 @@ sub {
 }
 
 .jobItemStyle #jobStatusCustomer {
-  color: #ffcc00;
+  color: #59b300;
   font-size: 13px;
-}
-
-#alignButtonLeft {
-  float: right;
-}
-
-.myCustomSelect {
-  max-width: 100% !important;
 }
 
 #alignButtonLeft {
@@ -22955,7 +22947,7 @@ sub {
 }
 
 .jobItemStyle #jobStatusCustomer {
-  color: #ffcc00;
+  color: #59b300;
   font-size: 13px;
 }
 
