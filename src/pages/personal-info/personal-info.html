@@ -10,24 +10,25 @@
           <ion-avatar item-left>
             <img src="./assets/images/avatar.png">
           </ion-avatar>
-          <h2>{{ name }}</h2>
-          <h3>{{ email + " " + phone }}</h3>
+          <p>{{ name }}</p>
+          <p>{{ email }}</p>
+          <p>{{ phoneNumber }}</p>
           <p>{{ address }}</p>
         </ion-item>
       <ion-item-divider color="light"></ion-item-divider>
       <ion-item (click)="goToEmail()">
         <ion-icon name="at" item-left></ion-icon>
-          Email {{ email }}
+          Email <p id="info">{{ email }}</p>
       </ion-item>
       <ion-item-divider color="light"></ion-item-divider>
       <ion-item (click)="goToPhoneNumber()">
         <ion-icon name="call" item-left></ion-icon>
-          Phone number  +{{ countryCode + " " + phoneNumber }}
+          Phone number  <p id="info">+{{countryCode + " " + phoneNumber }}</p>
       </ion-item>
     <ion-item-divider color="light"></ion-item-divider>
     <ion-item (click)="goToAddress()">
       <ion-icon name="locate" item-left></ion-icon>
-        Address {{address}}
+        Address <p id="info">{{ address }}</p>
     </ion-item>
     <ion-item-divider color="light"></ion-item-divider>
     <ion-item (click)="goToPassword()">

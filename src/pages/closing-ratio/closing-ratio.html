@@ -6,7 +6,6 @@
 
 </ion-header>
 
-
 <ion-content padding>
   <ion-item>
   <ion-label>Date</ion-label>
@@ -38,7 +37,7 @@
   <ion-col *ngFor="let q of matrix" class="col colValues">{{q.totalLeads.count}}</ion-col>
 </ion-row>
 <ion-row class="row">
-  <ion-col class="col colStatus" width-40>Closing Ratio</ion-col>
+  <ion-col class="col colStatus" width-40>C. Ratio</ion-col>
   <ion-col *ngFor="let q of matrix" class="col colValues">{{q.closingRatio.count | number : '1.2-2'}}%</ion-col>
 </ion-row>
 <br><br>
@@ -73,7 +72,7 @@
   <ion-col *ngFor="let q of matrixCompany" class="col colValues">{{q.totalLeads.count}}</ion-col>
 </ion-row>
 <ion-row class="row">
-  <ion-col class="col colStatus" width-40>Closing Ratio</ion-col>
+  <ion-col class="col colStatus" width-40>C. Ratio</ion-col>
   <ion-col *ngFor="let q of matrixCompany" class="col colValues">{{q.closingRatio.count | number : '1.2-2'}}%</ion-col>
 </ion-row>
 </ion-content>

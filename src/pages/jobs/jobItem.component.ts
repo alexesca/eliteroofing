@@ -51,6 +51,7 @@ export class JobItem {
         source: jobItem.marketing.source,
         sector: jobItem.sector,
         note: jobItem.currentStatusNote,
+        email: jobItem._idPeople.primaryEmailAddress
       }
       this.nav.push(JobDetails,this.jobInfo);
       /*let index = _.remove(this.jobs, function(o) { return o._id == jobItem._id; })

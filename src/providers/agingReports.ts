@@ -20,7 +20,7 @@ export class AgingReportsProvider {
  
     return new Promise(resolve => {
       //Calls this url and return a parsed json.object
-      this.http.get('http://localhost:8080/api/agingReports')
+      this.http.get('https://server-dynamic-port-dashboard.herokuapp.com/api/agingReports')
         .map(res => res.json())
         .subscribe(data => {
           this.data = data;

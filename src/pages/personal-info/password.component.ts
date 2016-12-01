@@ -22,8 +22,9 @@ export class PasswordPage {
   }
 
   requestPasswordReset(){
-    console.log(this.email);
-    this.auth.requestPasswordReset("alexescamore@gmail.com");
+    //confirmPasswordReset(32434,"alexescamore@gmail.com");
+    this.user.details.password = "123";
+    //this.navCtrl.push(this.auth.passwordResetUrl);
     return;
   }
 

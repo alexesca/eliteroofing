@@ -18,7 +18,7 @@ export class Clients {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
      //Calls this url and return a parsed json.object
-    this.http.post('http://localhost:8080/api/clients', JSON.stringify(client), {headers: headers})
+    this.http.post('https://server-dynamic-port-dashboard.herokuapp.com/api/clients', JSON.stringify(client), {headers: headers})
       .subscribe(res => {
         console.log(res.json());
       });
@@ -34,7 +34,7 @@ export class Clients {
  
     return new Promise(resolve => {
        //Calls this url and return a parsed json.object
-      this.http.get('http://localhost:8080/api/clients/one')
+      this.http.get('https://server-dynamic-port-dashboard.herokuapp.com/api/clients/one')
         .map(res => res.json())
         .subscribe(data => {
           this.data = data;

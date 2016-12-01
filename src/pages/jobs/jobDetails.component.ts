@@ -34,6 +34,7 @@ export class JobDetails{
   source: String;
   currentStatus: String;
   didNotBuyReasons: String[];
+  email: string;
 
   actionSheet: ShowActionSheet;
   //Var of the sttaus, and notes dfdf
@@ -57,6 +58,7 @@ export class JobDetails{
         this.note = this.navParam.get('note'),
         this.currentStatus = this.navParam.get('currentStatus'),
         this.source = this.navParam.get('source')
+        this.email = this.navParam.get('email');
         
   }
 

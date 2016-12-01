@@ -1,9 +1,10 @@
+  <!--The code for this part -->
   <ion-item-sliding>
-    <ion-item (click)="pushagingReportDetails(jobItemObject)">
+    <ion-item (click)="pushagingReportDetails(jobItemObject)" class="jobItemStyle">
             <ion-grid>
-                <ion-row><ion-col width-100><p class="jobListName">{{jobItemObject._idCustomer.firstName}} {{jobItemObject._idCustomer.lastName}}</p></ion-col></ion-row>
-                <ion-row><ion-col width-100>{{jobItemObject.address.street + " " + jobItemObject.address.zipCode + " " + jobItemObject.address.state  + ", " + jobItemObject.address.city}}</ion-col></ion-row>
-                <ion-row><ion-col width-50><ion-icon name="call"></ion-icon> {{jobItemObject._idCustomer.primaryPhoneNumber.number}}</ion-col><ion-col width-50><p class="jobStatus">{{jobItemObject.currentStatus}}</p></ion-col></ion-row>
+                <ion-row><ion-col width-100><p class="jobListName" id="nameCustomer">{{jobItemObject._idCustomer.firstName}} {{jobItemObject._idCustomer.lastName}}</p></ion-col></ion-row>
+                <ion-row><ion-col width-100><p id="addressCustomer">{{jobItemObject.address.street + " " + jobItemObject.address.zipCode + " " + jobItemObject.address.state  + ", " + jobItemObject.address.city}}</p></ion-col></ion-row>
+                <ion-row><ion-col width-50><p id="phoneCustomer"><ion-icon name="call"></ion-icon> {{jobItemObject._idCustomer.primaryPhoneNumber.number}}</p></ion-col></ion-row>
             </ion-grid>
     </ion-item>
     <ion-item-options side="left">

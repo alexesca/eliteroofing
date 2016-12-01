@@ -1,27 +1,31 @@
 <ion-header >
-  <ion-navbar [color]="'eliteRoofing'">
-    <ion-title>Job</ion-title>
+  <ion-navbar [color]="eliteRoofingDark">
+    <ion-title>Lead</ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content class="jobDetails">
-    <ion-grid padding>
+          <ion-item no-lines>
+          <ion-avatar item-left>
+            <img src="./assets/images/avatar.png">
+          </ion-avatar>
+          <h2>{{firstName + " " + lastName}}</h2>
+          <h3>{{ phoneNumber }}</h3>
+          <p>{{street + " " + zipCode + " " + city + " " + state}}</p>
+        </ion-item>
+ <ion-grid padding>
   <ion-row>
-    <ion-col width-100><h1><strong>{{firstName + " " + lastName}}</strong></h1></ion-col>
+      <!--<button ion-button clear (click)="presentActionSheet(phoneNumber,true, note)"><ion-icon name="call"></ion-icon> &nbsp;{{ phoneNumber }}</button>-->
+      <a href="tel:{{phoneNumber}}" id="contactLink">        
+        <ion-label><ion-icon name="call"></ion-icon> {{phoneNumber}}</ion-label>
+      </a>
   </ion-row>
   <ion-row>
-    <ion-col width-90><div>{{street + " " + zipCode + " " + city + " " + state}}</div></ion-col>
+    <a href="mailto:{{email}}" id="contactLink">
+        <ion-label center><ion-icon name="at"></ion-icon> {{email}}</ion-label>
+      </a>
   </ion-row>
   <ion-row>
-      <button ion-button clear (click)="presentActionSheet(phoneNumber,true, note)"><ion-icon name="call"></ion-icon> &nbsp;{{ phoneNumber }}</button>
-  </ion-row>
-  <ion-row>
-    &nbsp;
-  </ion-row>
-    <ion-row>
     <ion-col width-90><strong>{{currentStatus}}</strong>: {{note}}</ion-col>
-  </ion-row>
-  <ion-row>
-    &nbsp;
   </ion-row>
   <ion-row>
     <ion-col ><div>{{jobType}}</div></ion-col>

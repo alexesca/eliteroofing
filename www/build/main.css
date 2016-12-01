@@ -10,10 +10,6 @@
   used under CC BY http://creativecommons.org/licenses/by/4.0/
   Modified icons to fit ionicon’s grid from original.
 */
-@import url(pages/personal-info/address.component.css);
-@import url(pages/personal-info/email.component.css);
-@import url(pages/personal-info/password.component.css);
-@import url(pages/personal-info/phone.component.css);
 @font-face {
   font-family: "Ionicons";
   src: url("../assets/fonts/ionicons.eot?v=3.0.0-alpha.3");
@@ -22873,6 +22869,162 @@ sub {
   max-width: 100% !important;
 }
 
+.emailSlidingItem {
+  background-color: #2e5cb8;
+  font-size: 18px;
+  font-style: normal;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 2pt;
+}
+
+.centerLabelSlidingItem {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.textSlidingItem {
+  background-color: #59b300;
+  font-size: 18px;
+  font-style: normal;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 2pt;
+}
+
+.callSlidingItem {
+  background-color: #ffcc00;
+  font-size: 18px;
+  font-style: normal;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 2pt;
+}
+
+.centerIconSlidingItem {
+  vertical-align: middle;
+}
+
+.jobItemStyle #nameCustomer {
+  color: #1a1a1a;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.jobItemStyle #addressCustomer {
+  color: #808080;
+  font-size: 12px;
+}
+
+.jobItemStyle #phoneCustomer {
+  color: #004de6;
+  font-size: 13px;
+}
+
+.jobItemStyle #jobStatusCustomer {
+  color: #59b300;
+  font-size: 13px;
+}
+
+input[type="email"] {
+  font-size: 15px;
+  width: 100%;
+}
+
+.align-button-right {
+  float: right;
+}
+
+input[type="email"] {
+  font-size: 15px;
+  width: 100%;
+}
+
+input[type="email"] {
+  font-size: 15px;
+  width: 100%;
+}
+
+input[type="email"] {
+  font-size: 15px;
+  width: 100%;
+}
+
+#alignButtonLeft {
+  float: right;
+}
+
+.myCustomSelect {
+  max-width: 100% !important;
+}
+
+#alignButtonLeft {
+  float: right;
+}
+
+.myCustomSelect {
+  max-width: 100% !important;
+}
+
+.emailSlidingItem {
+  background-color: #2e5cb8;
+  font-size: 18px;
+  font-style: normal;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 2pt;
+}
+
+.centerLabelSlidingItem {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.textSlidingItem {
+  background-color: #59b300;
+  font-size: 18px;
+  font-style: normal;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 2pt;
+}
+
+.callSlidingItem {
+  background-color: #ffcc00;
+  font-size: 18px;
+  font-style: normal;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 2pt;
+}
+
+.centerIconSlidingItem {
+  vertical-align: middle;
+}
+
+.jobItemStyle #nameCustomer {
+  color: #1a1a1a;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.jobItemStyle #addressCustomer {
+  color: #808080;
+  font-size: 12px;
+}
+
+.jobItemStyle #phoneCustomer {
+  color: #004de6;
+  font-size: 13px;
+}
+
+.jobItemStyle #jobStatusCustomer {
+  color: #59b300;
+  font-size: 13px;
+}
+
 .styleNavBar {
   color: red;
 }
@@ -22883,6 +23035,11 @@ sub {
 
 .myCustomSelect {
   max-width: 100% !important;
+}
+
+#contactLink {
+  font-size: 12pt;
+  text-decoration: none;
 }
 
 #alignButtonLeft {
@@ -23010,6 +23167,12 @@ sub {
   -webkit-align-content: center;
   -ms-flex-line-pack: center;
   align-content: center;
+}
+
+page-personal-info #info {
+  color: lightslategray;
+  font-size: 12pt;
+  text-align: right;
 }
 
 input[type="email"] {

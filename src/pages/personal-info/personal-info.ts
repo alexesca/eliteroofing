@@ -14,7 +14,7 @@ import { PersonalInfoService } from '../../providers/personalInfoService';
   templateUrl: 'personal-info.html'
 })
 
-
+//add a coment
 
 export class PersonalInfoPage {
 
@@ -37,6 +37,10 @@ export class PersonalInfoPage {
   }
 
   ionViewDidLoad() {
+    this.getPersonalInfo();
+  }
+
+  ionViewDidEnter(){
     this.getPersonalInfo();
   }
 

@@ -15,7 +15,7 @@ export class AuthService {
     authUser(){
      return new Promise(resolve => {
       //Calls this url and return a parsed json.object
-      this.http.get('http://localhost:8080/auth')
+      this.http.get('https://server-dynamic-port-dashboard.herokuapp.com/auth')
         .map(res => res.json())
         .subscribe(data => {
           this.data = data;

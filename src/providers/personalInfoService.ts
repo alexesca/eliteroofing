@@ -20,7 +20,7 @@ export class PersonalInfoService {
  
     return new Promise(resolve => {
        //Calls this url and return a parsed json.object
-      this.http.get('http://localhost:8080/api/clients/one')
+      this.http.get('https://server-dynamic-port-dashboard.herokuapp.com/api/clients/one')
         .map(res => res.json())
         .subscribe(data => {
           this.data = data;
@@ -32,7 +32,7 @@ export class PersonalInfoService {
   //Makes the request to the API/REST server to update 
   saveEmail(email){
     //Calls this url and return a parsed json.object
-    this.http.put('http://localhost:8080/api/personalinfo/updateemail/' + "5807a86bf8d0c52d78d5140d",{'email': email})
+    this.http.put('https://server-dynamic-port-dashboard.herokuapp.com/api/personalinfo/updateemail/' + "5807a86bf8d0c52d78d5140d",{'email': email})
       .subscribe(res => {
         console.log(res.json());
       });
@@ -48,7 +48,7 @@ export class PersonalInfoService {
     let countryCode: string = phoneObject.countryCode;
 
     //Calls this url and return a parsed json.object
-    this.http.put('http://localhost:8080/api/personalinfo/updatephonenumber/' + "5807a86bf8d0c52d78d5140d",{ 'phone': phone, 'carrier' : carrier, 'countryCode':countryCode})
+    this.http.put('https://server-dynamic-port-dashboard.herokuapp.com/api/personalinfo/updatephonenumber/' + "5807a86bf8d0c52d78d5140d",{ 'phone': phone, 'carrier' : carrier, 'countryCode':countryCode})
       .subscribe(res => {
         console.log(res.json());
      });
@@ -64,7 +64,7 @@ export class PersonalInfoService {
     let address: string = phoneObject.address;
 
     //Calls this url and return a parsed json.object
-    this.http.put('http://localhost:8080/api/personalinfo/updateaddress/' + "5807a86bf8d0c52d78d5140d"
+    this.http.put('https://server-dynamic-port-dashboard.herokuapp.com/api/personalinfo/updateaddress/' + "5807a86bf8d0c52d78d5140d"
     ,{ 'country': country, 'state' : state, 'city': city, 'address' : address, 'zip' : zip})
       .subscribe(res => {
         console.log(res.json());

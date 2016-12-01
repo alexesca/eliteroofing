@@ -17,7 +17,7 @@ export class ClosingRatioProvider {
  
     return new Promise(resolve => {
       //Calls this url and return a parsed json.object
-      this.http.get('http://localhost:8080/api/closingRatio')
+      this.http.get('https://server-dynamic-port-dashboard.herokuapp.com/api/closingRatio')
         .map(res => res.json())
         .subscribe(data => {
           this.data = data;
@@ -31,7 +31,7 @@ export class ClosingRatioProvider {
     
      return new Promise(resolve => {
       //Calls this url and return a parsed json.object
-      this.http.get('http://localhost:8080/api/closingRatio/totalQuarterSalesRep?year='+ year + '&id=' + id)
+      this.http.get('https://server-dynamic-port-dashboard.herokuapp.com/api/closingRatio/totalQuarterSalesRep?year='+ year + '&id=' + id)
         .map(res => res.json())
         .subscribe(data => {
           this.data = data;
@@ -45,7 +45,7 @@ export class ClosingRatioProvider {
     
      return new Promise(resolve => {
       //Calls this url and return a parsed json.object
-      this.http.get('http://localhost:8080/api/closingRatio/totalQuarterCompany/' + year)
+      this.http.get('https://server-dynamic-port-dashboard.herokuapp.com/api/closingRatio/totalQuarterCompany/' + year)
         .map(res => res.json())
         .subscribe(data => {
           this.data = data;

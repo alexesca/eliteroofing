@@ -38,7 +38,7 @@ export class Jobs {
  
     return new Promise(resolve => {
       //Calls this url and return a parsed json.object
-      this.http.get('http://localhost:8080/api/pipeline/one')
+      this.http.get('https://server-dynamic-port-dashboard.herokuapp.com/api/pipeline/one')
         .map(res => res.json())
         .subscribe(data => {
           this.data = data;
@@ -66,7 +66,7 @@ export class Jobs {
     let response;
     headers.append('Content-Type', 'application/json');
     //Calls this url and return a parsed json.object
-    return this.http.post('http://localhost:8080/api/pipeline/updateStatus', JSON.stringify(statusInfo), {headers: headers})
+    return this.http.post('https://server-dynamic-port-dashboard.herokuapp.com/api/pipeline/updateStatus', JSON.stringify(statusInfo), {headers: headers})
       .subscribe(res => {
         console.log(res.json());
       });
