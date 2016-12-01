@@ -4,6 +4,7 @@
   </ion-navbar>
 </ion-header>
 <ion-content>
+    <ion-item-divider color="light"></ion-item-divider>
     <!-----personal-info-selector [name]="name" [email]="email" [phone]="phoneNumber" [address]="address"></personal-info-selector>-->
       <ion-list no-lines>
         <ion-item>
@@ -23,7 +24,7 @@
       <ion-item-divider color="light"></ion-item-divider>
       <ion-item (click)="goToPhoneNumber()">
         <ion-icon name="call" item-left></ion-icon>
-          Phone number  <p id="info">+{{countryCode + " " + phoneNumber }}</p>
+          Phone number  <p id="info" *ngIf="phoneNumber && countryCode">+{{countryCode + " " + phoneNumber }}</p>
       </ion-item>
     <ion-item-divider color="light"></ion-item-divider>
     <ion-item (click)="goToAddress()">

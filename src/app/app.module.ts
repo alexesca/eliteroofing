@@ -28,13 +28,18 @@ import { AddressPage } from '../pages/personal-info/address.component';
 import { PasswordPage } from '../pages/personal-info/password.component';
 import { PersonalInfoComponente } from '../pages/personal-info/personalInfo.component';
 import {FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Storage } from '@ionic/storage';
+
+import './rxjs-extensions';
+
+
 //Using cloud settings
 //import { AuthHttp, AuthConfig,AUTH_PROVIDERS } from 'angular2-jwt';
 //import { Http } from '@angular/http';
-//import { Storage } from '@ionic/storage';
+
 const cloudSettings: CloudSettings = {
   'core': {
-    'app_id': '7a1365fe'
+    'app_id': '4ca62f16'
   }
 };
 
@@ -95,6 +100,6 @@ const cloudSettings: CloudSettings = {
     PersonalInfoComponente
   ],
   //Add your providers or services here
-  providers: [Jobs, Clients, AgingReportsProvider, ClosingRatioProvider, AuthService,PersonalInfoService]
+  providers: [Jobs, Clients, AgingReportsProvider, ClosingRatioProvider, AuthService,PersonalInfoService, Storage]
 })
 export class AppModule {}

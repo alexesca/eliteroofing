@@ -4,7 +4,7 @@
   </ion-navbar>
 </ion-header>
 
-<!--  hsdjhaskjdhd -->
+<!--   -->
 <ion-content>
     <form #f="ngForm" (ngSubmit)="saveAddress(f.value)">
         <ion-grid>
@@ -52,6 +52,13 @@
         <ion-row>
             <ion-col width-90>
                 <button type="submit" ion-button class="align-button-right">Save</button>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col width-90>
+                <ion-item *ngIf="errorMessage" no-lines>
+                    <p class="errorMessage">{{ errorMessage }}</p>
+                </ion-item>
             </ion-col>
         </ion-row>
         </ion-grid>

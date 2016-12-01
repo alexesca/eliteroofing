@@ -52,7 +52,7 @@ export class JobsList {
       return m + "/" + d + "/" + y;
     }
 
-    //Sorting pipeline by name jkllkjlk
+    //Sorting pipeline by name 
     sortPipelineByName(){
       switch (this.sort) {
         case 0:
@@ -80,7 +80,4 @@ export class JobsList {
       }
     }
 
-    statusWasChanged(message: string){
-      console.log("event emitted", message );
-    }
 }

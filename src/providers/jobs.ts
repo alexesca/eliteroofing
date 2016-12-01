@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers } from '@angular/http';
+import { Http, Headers, Response } from '@angular/http';
+import { ServerUrl } from './serverUrl';
+import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
  
 @Injectable()
 export class Jobs {
  
   data: any;
- 
+  serverUrl: string = new ServerUrl().url;
+
   constructor(public http: Http) {
     this.data = null;
   }
@@ -19,7 +22,7 @@ export class Jobs {
  
     return new Promise(resolve => {
       //Calls this url and return a parsed json.object hjhkjhkjhkjh
-      this.http.get('https://server-dynamic-port-dashboard.herokuapp.com/api/pipeline')
+      this.http.get(this.serverUrl + '/api/pipeline')
         .map(res => res.json())
         .subscribe(data => {
           this.data = data;
@@ -38,7 +41,7 @@ export class Jobs {
  
     return new Promise(resolve => {
       //Calls this url and return a parsed json.object
-      this.http.get('https://server-dynamic-port-dashboard.herokuapp.com/api/pipeline/one')
+      this.http.get( this.serverUrl + '/api/pipeline/one')
         .map(res => res.json())
         .subscribe(data => {
           this.data = data;
@@ -54,7 +57,7 @@ export class Jobs {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     //Calls this url and return a parsed json.object
-    this.http.post('https://server-dynamic-port-dashboard.herokuapp.com/api/pipeline', JSON.stringify(job), {headers: headers})
+    this.http.post( this.serverUrl + '/api/pipeline', JSON.stringify(job), {headers: headers})
       .subscribe(res => {
         console.log(res.json());
       });
@@ -63,13 +66,24 @@ export class Jobs {
   //Makes the request to the API/REST server
   updatePipelineStatus(statusInfo){
     let headers = new Headers();
-    let response;
     headers.append('Content-Type', 'application/json');
     //Calls this url and return a parsed json.object
-    return this.http.post('https://server-dynamic-port-dashboard.herokuapp.com/api/pipeline/updateStatus', JSON.stringify(statusInfo), {headers: headers})
-      .subscribe(res => {
-        console.log(res.json());
-      });
+    return this.http.put(this.serverUrl + '/api/pipeline/updateStatus', statusInfo, {headers: headers})                        
+      .map(res => res.json() )
+      .catch(this.handleError);
+  }
+
+  private handleError (error: Response | any) {
+    // In a real world app, we might use a remote logging infrastructure
+    let errMsg: string;
+    if (error instanceof Response) {
+      const body = error.json() || '';
+      const err = body.error || JSON.stringify(body);
+      errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
+    } else {
+      errMsg = error.message ? error.message : error.toString();
+    }
+    return Observable.throw(errMsg);
   }
 
 

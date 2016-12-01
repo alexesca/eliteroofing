@@ -22861,6 +22861,10 @@ sub {
   font-size: 13px;
 }
 
+.jobItemStyle .toast-container {
+  background-color: white;
+}
+
 #alignButtonLeft {
   float: right;
 }
@@ -23108,6 +23112,10 @@ input[type="email"] {
   font-size: 13px;
 }
 
+.jobItemStyle .toast-container {
+  background-color: white;
+}
+
 .ios .login, .md .login {
   background-color: red;
   background-image: url("../assets/images/loginBackGround.jpg");
@@ -23173,6 +23181,8 @@ page-personal-info #info {
   color: lightslategray;
   font-size: 12pt;
   text-align: right;
+  background-color: red;
+  padding: 4px;
 }
 
 input[type="email"] {

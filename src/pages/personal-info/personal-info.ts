@@ -31,6 +31,8 @@ export class PersonalInfoPage {
   countryCode: string;
   name: string;
 
+  errorMessage: any;
+
 
   constructor(private personalInfo: PersonalInfoService,private _app: App, public navCtrl: NavController, public auth: Auth, public user: User, private loadingCtrl: LoadingController) {
  
@@ -78,19 +80,25 @@ export class PersonalInfoPage {
 
   getPersonalInfo(){
     this.personalInfo.getPersonalInfo().then((data) => {
-      console.log(data);
-      this.personalInformation = data;
-      this.name = this.personalInformation.firstName + " " + this.personalInformation.lastName
-      this.email = this.personalInformation.primaryEmailAddress;
-      this.phoneNumber = this.personalInformation.primaryPhoneNumber.number;
-      this.carrier = this.personalInformation.primaryPhoneNumber.carrier;
-      this.countryCode = this.personalInformation.primaryPhoneNumber.countryCode;
-      this.address = this.personalInformation.primaryAddress.address;
-      this.country = this.personalInformation.primaryAddress.country;
-      this.state = this.personalInformation.primaryAddress.state;
-      this.city = this.personalInformation.primaryAddress.city;
-      this.zip = this.personalInformation.primaryAddress.zip;
-    });
+      if(data.status !== "error"){
+        this.personalInformation = data.data;
+        this.name = this.personalInformation.firstName + " " + this.personalInformation.lastName
+        this.email = this.personalInformation.primaryEmailAddress;
+        this.phoneNumber = this.personalInformation.primaryPhoneNumber.number;
+        this.carrier = this.personalInformation.primaryPhoneNumber.carrier;
+        this.countryCode = this.personalInformation.primaryPhoneNumber.countryCode;
+        this.address = this.personalInformation.primaryAddress.address;
+        this.country = this.personalInformation.primaryAddress.country;
+        this.state = this.personalInformation.primaryAddress.state;
+        this.city = this.personalInformation.primaryAddress.city;
+        this.zip = this.personalInformation.primaryAddress.zip;
+      }else{
+        this.errorMessage = data.message;
+        console.log(data)
+      }
+    }).catch(error => {this.errorMessage = error});
+
   }
+
 
 }

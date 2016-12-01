@@ -10,12 +10,19 @@
         <ion-row>
             <ion-col width-90>
                 <ion-item>
-                    <ion-input type="email" name="email" placeholder="Email" value="{{emails}}" ngModel></ion-input>
+                    <ion-input type="email" name="email" placeholder="Email" [(ngModel)]="emails" ></ion-input>
                 </ion-item>
             </ion-col>
         </ion-row>
         <ion-row>
-            <ion-col width-90 ><button ion-button class="align-button-right">Save</button></ion-col>
+            <ion-col width-90 ><button type="submit" ion-button class="align-button-right">Save</button></ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col width-90>
+                <ion-item *ngIf="errorMessage" no-lines>
+                    <p class="errorMessage">{{ errorMessage }}</p>
+                </ion-item>
+            </ion-col>
         </ion-row>
         </ion-grid>
     </form>    

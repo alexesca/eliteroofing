@@ -13,9 +13,6 @@
     </ion-list>-->
 
     <ion-list no-lines >
-        <ion-list-header class="headerStyle">
-            Didn't Buy Reasons
-        </ion-list-header>
         <button ion-item  *ngFor="let option of didNotBuyReasons" (click)="selectedDidNotBuyExplainedReason(option)" detail-none padding>
             <ion-icon name="arrow-back"></ion-icon> {{option}}
         </button>

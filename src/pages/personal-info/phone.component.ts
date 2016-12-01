@@ -3,6 +3,10 @@ import { Auth, User, UserDetails, IDetailedError } from '@ionic/cloud-angular';
 import { NavController, LoadingController, App, NavParams, ModalController } from 'ionic-angular';
 import { PersonalInfoService } from '../../providers/personalInfoService';
 import { CarriersModal } from './carrier.modal.component';
+import { ToastController } from 'ionic-angular';
+import { ToastModule } from '../../modules/toast.module';
+import { Observable } from 'rxjs'
+
 /*
  pages and navigation.
 */
@@ -16,21 +20,31 @@ export class PhoneNumberPage {
   phoneNumberInformation: String;
   phone: String;
   carrier: String;
-  countryCode: String;
+  countryCode: number;
+  errorMessage: any;
 
-  constructor(private modalCtrl: ModalController ,private personalInfo: PersonalInfoService,public navParams: NavParams, private _app: App, public navCtrl: NavController, public auth: Auth, public user: User, private loadingCtrl: LoadingController) {
+  constructor(private toastCtrl: ToastController, private modalCtrl: ModalController ,private personalInfo: PersonalInfoService,public navParams: NavParams, private _app: App, public navCtrl: NavController, public auth: Auth, public user: User, private loadingCtrl: LoadingController) {
  
   }
 
   ionViewDidLoad() {
     this.phone = this.navParams.get('phone');
     this.carrier = this.navParams.get('carrier');
-    this.countryCode = this.navParams.get('countryCode');
+    this.countryCode = 1;//this.navParams.get('countryCode');
   }
 
   savePhoneNumber(phoneObject: any){
-    console.log(phoneObject);
-    this.personalInfo.savePhoneNumber(phoneObject);
+    this.personalInfo.savePhoneNumber(phoneObject)
+    .subscribe(
+      data => {
+         // Confirm to the user it was saved
+         const toast = this.toastCtrl.create(new ToastModule('The phone number was saved', true, 'Ok',3000, "middle"));
+         toast.present();
+         this.errorMessage = null;
+         return true;
+       },
+      error => this.errorMessage = "There was an error saving the phone number"
+    );
     return;
   }
 

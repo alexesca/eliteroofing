@@ -3,6 +3,9 @@ import { Auth, User, UserDetails, IDetailedError } from '@ionic/cloud-angular';
 import { NavController, LoadingController, App, NavParams, ModalController } from 'ionic-angular';
 import { PersonalInfoService } from '../../providers/personalInfoService';
 import { CarriersModal } from './carrier.modal.component';
+import { ToastModule } from '../../modules/toast.module';
+import { ToastController } from 'ionic-angular';
+
 /*
   Generated class for the PersonalInfo page.
 
@@ -21,8 +24,9 @@ export class AddressPage {
   address: string;
   zip: string;
   city: string;
+  errorMessage: string;
 
-  constructor(private modalCtrl: ModalController ,private personalInfo: PersonalInfoService,public navParams: NavParams, private _app: App, public navCtrl: NavController, public auth: Auth, public user: User, private loadingCtrl: LoadingController) {
+  constructor(private toastCtrl: ToastController, private modalCtrl: ModalController ,private personalInfo: PersonalInfoService,public navParams: NavParams, private _app: App, public navCtrl: NavController, public auth: Auth, public user: User, private loadingCtrl: LoadingController) {
  
   }
 
@@ -36,8 +40,17 @@ export class AddressPage {
   }
 
   saveAddress(addressObject: any){
-    console.log(addressObject);
-    this.personalInfo.saveAddress(addressObject);
+    this.personalInfo.saveAddress(addressObject)
+    .subscribe(
+      data => {
+         // Confirm to the user it was saved
+         const toast = this.toastCtrl.create(new ToastModule('Email was saved', true, 'Ok',3000,"middle",""));
+         toast.present();
+         this.errorMessage = null;
+         return true;
+       },
+      error => this.errorMessage = "There was an error updating the address"
+    );
     return;
   }
 

@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Email</ion-title>
+    <ion-title>Email info</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -9,9 +9,10 @@
         <ion-grid>
         <ion-row>
             <ion-col width-90>
-                <ion-item>
-                    <ion-label color="eliteRoofingDark" floating>Country Code</ion-label>
-                    <ion-input type="number" name="countryCode" [(ngModel)]="countryCode"></ion-input>
+                <ion-item no-lines>
+                    <p>Country Code</p>
+                    <p id="contryCodeStyle">+ {{ countryCode }}</p>
+                    <input type="hidden" name="countryCode" [(ngModel)]="countryCode">
                 </ion-item>
             </ion-col>
         </ion-row>
@@ -19,7 +20,7 @@
         <ion-col width-90>
             <ion-item>
                 <ion-label color="eliteRoofingDark" floating>Phone Number</ion-label>
-                <ion-input type="number" name="phone" [(ngModel)]="phone"></ion-input>
+                <ion-input type="text" name="phone" [(ngModel)]="phone"></ion-input>
                 <input type="hidden" name="carrier" [(ngModel)]="carrier">
             </ion-item>
         </ion-col>
@@ -31,6 +32,13 @@
         </ion-row>
         <ion-row>
             <ion-col width-90><button type="submit" ion-button class="align-button-right">Save</button></ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col width-90>
+                <ion-item *ngIf="errorMessage" no-lines>
+                    <p class="errorMessage">{{ errorMessage }}</p>
+                </ion-item>
+            </ion-col>
         </ion-row>
         </ion-grid>
     </form>    

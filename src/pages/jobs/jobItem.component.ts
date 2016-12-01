@@ -8,6 +8,7 @@ import {TextCustomer} from '../../modules/text.module';
 import { Jobs } from '../../providers/jobs';
 import {ConfirmAlert} from '../../modules/confirmAlert.module';
 import { DidNotBuyExplained } from './didNotBuyExplained.component';
+import { ToastModule } from '../../modules/toast.module';
 
 @Component({
   selector: 'job-item',
@@ -28,7 +29,7 @@ export class JobItem {
     note : String;
     @Input() jobItemObject: JobsModel;
     //constructor
-    constructor(public viewController: ViewController, public toastCtrl: ToastController, public nav: NavController, public jobService: Jobs, public alertCtrl: AlertController, public modalCtrl: ModalController){     
+    constructor( public viewController: ViewController, public toastCtrl: ToastController, public nav: NavController, public jobService: Jobs, public alertCtrl: AlertController, public modalCtrl: ModalController){     
       this.showJobComponent = true;
     }
 
@@ -60,12 +61,10 @@ export class JobItem {
 
     callCustomer(phoneNumber: string, byPassAPI: boolean){
         this.callPhoneNumber = new  CallCustomer(phoneNumber, byPassAPI);
-        console.log(423432);
     }
 
     textCustomer(phoneNumber: string, message: string){
         this.callPhoneNumber = new  TextCustomer(phoneNumber, message);
-        console.log(423432);
     }
 
     ChangePipelineStatus(status){
@@ -87,15 +86,21 @@ export class JobItem {
                   status:  status,
                   statusNote:  ""
                 }
-              this.jobService.updatePipelineStatus(statusInfo);
-              this.showJobComponent = false;
-              const toast = this.toastCtrl.create({
-                message: 'Your changes were successfully saved',
-                showCloseButton: true,
-                closeButtonText: 'Ok',
-                duration: 3000
-              });
-
+              this.jobService.updatePipelineStatus(statusInfo).subscribe(
+                data => {
+                  // Confirm to the user it was saved
+                  const toast = this.toastCtrl.create(new ToastModule('Status was changed to ' + statusInfo.status, true, 'Ok',3000,"middle","redToast"));
+                  toast.present();
+                  this.showJobComponent = false;
+                  return true;
+                },
+                error => {
+                  const toast = this.toastCtrl.create(new ToastModule('There was an error', true, 'OK',5000,"middle",".toast-container"));
+                  toast.present();
+                  this.showJobComponent = true;
+                  return true;
+                }
+              );
           }
         }
       ]
